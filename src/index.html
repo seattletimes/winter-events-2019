@@ -8,7 +8,6 @@
 
     <responsive-child>
       <!-- content goes here -->
-    <%= t.include("partials/_gtm.html") %>
     <%= t.include("partials/_nav.html") %>
     <%= t.include("partials/_ad.html", { type: "banner" }) %>
      
@@ -25,6 +24,12 @@
       <nav class="filters">
         <div>
           <h2 class="nav-header">Choose categories</h2>
+          <% json.guide.forEach(function(event) { %>
+            <div>
+              <h3><%= event.event %></h3>
+            </div>
+          <% }) %>
+
           <% var cats = [
             { data: "arts", label: "Arts, Exhibits &amp; Expos" },
             { data: "holiday", label: "Fourth of July" },
