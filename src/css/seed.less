@@ -1,1 +1,21 @@
 @import "seattletimes";
+
+.grid-container {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  background-color: #2196F3;
+  padding: 10px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(224, 224, 235, 1);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  .grid-item:nth-of-type(5n) {
+      background-color: rgba(135,171,93,1.00)
+  }
