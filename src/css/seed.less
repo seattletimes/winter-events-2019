@@ -1,25 +1,47 @@
 @import "seattletimes";
+body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+
+  @media @mobile {
+    font-size: 30px;
+  }
+}
+
+header.top {
+  max-width: 960px;
+  margin: auto;
+  padding: 0 16px;
+}
 
 .grid-container {
   display: grid;
-  align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  background-color: #2196F3;
-  padding: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 20px;
+  align-items: stretch;
+  font-size: 15px;
+  font-family: @df-sans;
 }
 
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(224, 224, 235, 1);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-  }
-  
-  .grid-item:nth-of-type(5n) {
-      background-color: rgba(135,171,93,1.00)
-  }
+.event {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+  padding: 10px;;
 
+  .event-icon {
+    width: 30%;
+    float: left;
+  }
+  a {
+    font-weight: bold;
+    color: #0777b3;
+    text-decoration: none;
+  }  
+}
 
   .filters {
     font-family: @df-sans;
@@ -63,18 +85,6 @@
       label {
         display: block;
       }
-    }
-  
-    .meses {
-      padding: 8px 0;
-      margin: 0;
-      list-style-type: none;
-      display: block;
-      text-align: center;
-  
-      label {
-        display: block;
-      }    
     }
   
     input[type=checkbox] {

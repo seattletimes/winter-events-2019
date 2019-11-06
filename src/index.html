@@ -2,79 +2,71 @@
 <html lang="en-US">
   <head>
     <%= t.include("partials/_head.html", grunt.data.json) %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- Safari, you're the worst -->
+    <meta name='format-detection' content='telephone=no'>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <%= t.include("partials/_head.html", grunt.data.json) %>
   </head>
   <body>
-
-    <responsive-child>
-      <!-- content goes here -->
-    <%= t.include("partials/_nav.html") %>
-    <%= t.include("partials/_ad.html", { type: "banner" }) %>
-     
-    <header class="top"></header>
-      <h1>Winter Guide 2019</h1>
-      <p>image here</p>
-
-      <p>Planning out your winter? Look no further!</p>
-    </header>
-
-    <main class="table-container">
-
-      <nav class="filters">
-        <div>
-          <h2 class="nav-header">Choose categories</h2>
-          
-          <% var cats = [
-            { data: "Lights", label: "Lights" },
-            { data: "Markets", label: "Markets" },
-            { data: "Festivals", label: "Festivals" },
-            { data: "Special Events", label: "Special Events" },
-            { data: "Parties", label: "Parties" },
-            { data: "Runs", label: "Runs" },
-          ] %>
-          <ul class="categories">
-            <% cats.forEach(function(cat) { %>
-            <li>
-              <input type="checkbox" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-              <label for="<%= cat.data %>"><%= cat.label %><img src="assets/festivals-icon.jpg" width="90" height="75"></label>
-              <!-- MAKE THIS WORK TO GET ICON NEXT TO LABEL AS KEY-->
-            </li>
-            <% }) %>
-          </ul>
-        </div>
-
-      <!-- month filter -->
-
-        <div>
-          <h2 class="nav-header">Choose a month</h2>
-          <% var meses = [
-            { data: "may", label: "May" },
-            { data: "june", label: "June" },
-            { data: "july", label: "July" },
-            { data: "aug", label: "August" },
-            { data: "sept", label: "September" },
-          ] %>
-          <ul class="meses">
-            <% meses.forEach(function(mes) { %>
-            <li>
-              <input type="checkbox" data-month="<%= mes.data %>" id="<%= mes.data %>">
-              <label for="<%= mes.data %>"><%= mes.label %></label>
-            </li>
-            <% }) %>
-          </ul>
-        </div>
-      <!-- end month filter -->
-
-      <!-- Events -->
-      <% json.guide.forEach(function(event) { %>
-        <div>
-          <h3><%= event.event %></h3>
-        </div>
-      <% }) %>
-
-     
-	  
+      <responsive-child>
+        <%= t.include("partials/_nav.html") %>
+        <%= t.include("partials/_ad.html", { type: "banner" }) %>
+           
+        <header class="top">
+          <h1>Winter Guide 2019</h1>
+          <h1><img class="header-illo" src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image"></h1>
+          <p>Planning out your winter? Look no further!</p>
+        </header>
+         
+        <main>
+            <nav class="filters">
+              <div>
+                <h2 class="nav-header">Choose categories</h2>    
+                <% var cats = [
+                  { data: "Lights", label: "Lights" },
+                  { data: "Markets", label: "Markets" },
+                  { data: "Festivals", label: "Festivals" },
+                  { data: "Special Events", label: "Special Events" },
+                  { data: "Parties", label: "Parties" },
+                  { data: "Runs", label: "Runs" },
+                ] %>
+                <ul class="categories">
+                  <% cats.forEach(function(cat) { %>
+                  <li>
+                    <input type="checkbox" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
+                    <label for="<%= cat.data %>"><%= cat.label %></label>
+                    <!-- Determine best icon position and how to indicate selection without the check?-->
+                  </li>
+                  <% }) %>
+                </ul>
+              </div>
+              
+              <div class="advanced">
+                <input type="text" placeholder="Search events" class="search">
+                <input type="checkbox" class="editors" id="editors">
+              </div>
+             </nav>
+            <!-- End filters -->
+            <div class="grid-container">
+               
+                <% json.guide.forEach(function(event) { %>
+                  <div class="event <%= event.category %>" data-category="<%= event.category %>">
+                    <img class="event-icon" src="assets/icons/<%= event.category %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
+                    <a href="<%= event["website (online)"] %>"> <%= event.event %></a>
+                    <p><%= event.dates %> </p>
+                    <p><%= event.time %> </p>
+                    <p><%= event.info %> </p>
+                    <p><%= event.price %> </p>
+                    <p><%= event.location %> </p>
+                    </p>
+                  </div>
+                <% }) %>
+            
+          </div>
     
+          
     </responsive-child>
 
     <script src="app.js" async></script>
