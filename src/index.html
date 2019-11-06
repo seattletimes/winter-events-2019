@@ -35,8 +35,9 @@
                 <ul class="categories">
                   <% cats.forEach(function(cat) { %>
                   <li>
+                    
                     <input type="checkbox" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-                    <label for="<%= cat.data %>"><%= cat.label %></label>
+                    <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.label %>.jpg"><%= cat.label %></label>
                     <!-- Determine best icon position and how to indicate selection without the check?-->
                   </li>
                   <% }) %>
@@ -44,7 +45,7 @@
               </div>
               
               <div class="advanced">
-                <input type="text" placeholder="Search events" class="search">
+                <input type="text" placeholder="Search events" class="search" id="search">
                 <input type="checkbox" class="editors" id="editors">
               </div>
              </nav>
