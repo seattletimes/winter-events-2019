@@ -21,7 +21,7 @@ header.top {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 5px;
   align-items: stretch;
   font-size: 15px;
   font-family: @df-sans;
@@ -33,7 +33,7 @@ header.top {
   padding: 10px;;
 
   .event-icon {
-    width: 30%;
+    width: 20%;
     float: left;
   }
   a {
@@ -83,12 +83,12 @@ header.top {
       list-style-type: none;
       display: block;
       text-align: center;
-  
+    
       label {
         display: block;
 
         .filter-icon{
-          width: 10%;
+          width: 15%;
         }
       }
     }
@@ -115,8 +115,8 @@ header.top {
         color: @df-dark-gray;
   
         &::before {
-          content: "✓";
-          margin-right: 6px;
+          content: "";
+   
         }
       }
     }

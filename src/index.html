@@ -25,19 +25,18 @@
               <div>
                 <h2 class="nav-header">Choose categories</h2>    
                 <% var cats = [
-                  { data: "Lights", label: "Lights" },
-                  { data: "Markets", label: "Markets" },
-                  { data: "Festivals", label: "Festivals" },
-                  { data: "Special Events", label: "Special Events" },
-                  { data: "Parties", label: "Parties" },
-                  { data: "Runs", label: "Runs" },
+                  { data: "lights", label: "Lights"},
+                  { data: "markets", label: "Markets" },
+                  { data: "festivals", label: "Festivals" },
+                  { data: "special-events", label: "Special Events" },
+                  { data: "parties", label: "Parties" },
+                  { data: "runs", label: "Runs" },
                 ] %>
                 <ul class="categories">
                   <% cats.forEach(function(cat) { %>
                   <li>
-                    
-                    <input type="checkbox" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-                    <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.label %>.jpg"><%= cat.label %></label>
+                    <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
+                    <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><%= cat.label %></label>
                     <!-- Determine best icon position and how to indicate selection without the check?-->
                   </li>
                   <% }) %>
@@ -51,10 +50,10 @@
              </nav>
             <!-- End filters -->
             <div class="grid-container">
-               
+              <% var cat = {Lights: "lights", Markets: "markets", Festivals: "festivals", "Special Events": "special-events", Parties: "parties", Runs: "runs"} %>
                 <% json.guide.forEach(function(event) { %>
-                  <div class="event <%= event.category %>" data-category="<%= event.category %>">
-                    <img class="event-icon" src="assets/icons/<%= event.category %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
+                  <div class="event <%= event.category %>" data-category="<%= cat[event.category] %>">
+                    <img class="event-icon" src="assets/icons/<%= cat[event.category] %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
                     <a href="<%= event["website (online)"] %>"> <%= event.event %></a>
                     <p><%= event.dates %> </p>
                     <p><%= event.time %> </p>

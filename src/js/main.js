@@ -8,16 +8,39 @@ var $ = require("./lib/qsa");
 var debounce = require("./lib/debounce");
 var scrollTo = require("./lib/animateScroll");
 
-var catList = document.querySelector(".filters .categories");
+var catList = document.querySelectorAll(".filter-buttons");
 var grid = document.querySelector(".grid-container");
 var searchBox = document.querySelector(".filters .search");
+var events = document.querySelectorAll(".event");
 
-function search(){
-  var re = document.getElementById('search');
-  console.log(re);
+var show = [];
+
+function filterByCategory(){
+  if (show.includes(this.dataset.category)){
+    show.pop(this.dataset.category);
+  }
+  else {
+    show.push(this.dataset.category);
+  }
+
+  events.forEach(function(element){
+    if(show.includes(element.dataset.category)){
+      //console.log('in list');
+    }
+    else {
+      //console.log('not in list');
+      element.style.display="none";
+    }
+    //console.log(element.dataset.category);
+  })
+  //console.log(show);
+  //console.log(this.dataset.category);
 }
 
 
-searchBox.addEventListener("keyup", search);
+catList.forEach(function(element){
+   element.addEventListener("click", filterByCategory);
 
-require("component-responsive-frame/child");
+})
+
+
