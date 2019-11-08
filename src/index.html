@@ -18,6 +18,7 @@
           <h1>Winter Guide 2019</h1>
           <h1><img class="header-illo" src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image"></h1>
           <p>Planning out your winter? Look no further!</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu nulla ipsum. Mauris maximus laoreet arcu, eget tincidunt mi blandit eu. Sed a ligula at sem sagittis efficitur ut id eros. Cras sed nulla est. Maecenas mollis id eros quis facilisis. Nulla tristique porta erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
         </header>
          
         <main>
@@ -36,7 +37,7 @@
                   <% cats.forEach(function(cat) { %>
                   <li>
                     <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-                    <img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><label for="<%= cat.data %>"><%= cat.label %></label>
+                    <label for="<%= cat.data %>"><%= cat.label %></label>
                     <!-- Determine best icon position and how to indicate selection without the check?-->
                   </li>
                   <% }) %>
@@ -52,19 +53,25 @@
             <div class="grid-container">
               <% var cat = {Lights: "lights", Markets: "markets", Festivals: "festivals", "Special Events": "special-events", Parties: "parties", Runs: "runs"} %>
                 <% json.guide.forEach(function(event) { %>
-                  <div class="event <%= event.category %>" data-category="<%= cat[event.category] %>">
+                  <div  class="event <%= event.category %>" data-category="<%= cat[event.category] %>">
                     <img class="event-icon" src="assets/icons/<%= cat[event.category] %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
-                    <a href="<%= event["website (online)"] %>"> <%= event.event %></a>
-                    <p><%= event.dates %> </p>
-                    <p><%= event.time %> </p>
+                    <p class="event-header">
+                      <a href="<%= event["website (online)"] %>"> <%= event.event %></a> <br>
+                      <%= event.dates %>, <%= event.time %>
+                    </p>
+                    
                     <p class="info"><%= event.info %> </p>
                     <p><%= event.price %> </p>
-                    <p><%= event.location %> </p>
+
+                    <p>
+                      <%= event.phone %> <br>
+                      <%= event.location %>
                     </p>
                   </div>
                 <% }) %>
             
-          </div>
+              </div>
+              <div class="noResults">No results found</div>
     
           
     </responsive-child>

@@ -56,15 +56,14 @@ header.top {
     list-style-type: none;
     display: block;
     text-align: center;
-  
+
     label {
       display: block;
+
     }
   }
 
-  .filter-icon{
-    width: 15%;
-  }
+ 
 
   input[type=checkbox] {
     display: none;
@@ -102,24 +101,45 @@ header.top {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 5px;
+  grid-gap: 15px;
   align-items: stretch;
   font-size: 15px;
   font-family: @df-sans;
+  
 }
 
 .event {
   border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-  padding: 10px;;
+  border-radius: 20px;
+  padding: 20px;
+
+  .info{
+    clear: both;
+  }
 
   .event-icon {
     width: 20%;
     float: left;
   }
-  a {
+
+  .event-header{
+    font-size: 17px;
     font-weight: bold;
-    color: #0777b3;
-    text-decoration: none;
-  }  
+    a {
+      font-size: 20px;
+      color: #0777b3;
+      text-decoration: none;
+    }  
+  }
+
+}
+
+.noResults{
+  visibility: hidden;
+  text-align: center;
+  background-color: #e0e0e0;
+  max-width: 80%;
+  height: 100px;
+  margin: auto;
+  line-height: 100px;
 }
