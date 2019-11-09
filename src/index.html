@@ -1,28 +1,32 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <title><%= json.project.title %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- Safari, you're the worst -->
     <meta name='format-detection' content='telephone=no'>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Yeseva+One&display=swap" rel="stylesheet">
     <%= t.include("partials/_head.html", grunt.data.json) %>
   </head>
   <body>
       <responsive-child>
         <%= t.include("partials/_nav.html") %>
-        <%= t.include("partials/_ad.html", { type: "banner" }) %>
            
         <header class="top">
           <h1>Winter Guide 2019</h1>
-          <h1><img class="header-illo" src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image"></h1>
-          <p>Planning out your winter? Look no further!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu nulla ipsum. Mauris maximus laoreet arcu, eget tincidunt mi blandit eu. Sed a ligula at sem sagittis efficitur ut id eros. Cras sed nulla est. Maecenas mollis id eros quis facilisis. Nulla tristique porta erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+          <img class="header-illo" src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
+          <p class="illo-byline">GABRIEL CAMPANARIO // SEATTLE TIMES</p>
+          <div class="chatter">
+            <p>The holiday season is here — and with it, comes an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there's no shortage of ways to have some festive fun in the coming weeks. Use this guide to help you decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes for events and outings, always check times and dates before you go.</p>
+            <p class="pubDate">Originally published: May 18, 2019</p>
+          </div>
         </header>
          
         <main>
-            <nav class="filters">
+            
+          <nav class="filters">
               <div>
                 <h2 class="nav-header">Choose categories</h2>    
                 <% var cats = [
@@ -37,44 +41,60 @@
                   <% cats.forEach(function(cat) { %>
                   <li>
                     <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-                    <label for="<%= cat.data %>"><%= cat.label %></label>
+                    <label for="<%= cat.data %>"><%= cat.label %><br><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"></label>
                     <!-- Determine best icon position and how to indicate selection without the check?-->
                   </li>
                   <% }) %>
                 </ul>
               </div>
-              
               <div class="advanced">
                 <input type="text" placeholder="Search events" class="search" id="search">
                 <input type="checkbox" class="editors" id="editors">
               </div>
              </nav>
-            <!-- End filters -->
-            <div class="grid-container">
-              <% var cat = {Lights: "lights", Markets: "markets", Festivals: "festivals", "Special Events": "special-events", Parties: "parties", Runs: "runs"} %>
-                <% json.guide.forEach(function(event) { %>
-                  <div  class="event <%= event.category %>" data-category="<%= cat[event.category] %>">
-                    <img class="event-icon" src="assets/icons/<%= cat[event.category] %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
-                    <p class="event-header">
+           <!-- End filters -->
+
+          <div class="event-grid">
+          <div class="grid-container">
+            <% var cat = {Lights: "lights", Markets: "markets", Festivals: "festivals", "Special Events": "special-events", Parties: "parties", Runs: "runs"} %>
+              <% json.guide.forEach(function(event) { %>
+                <div  class="event <%= event.category %>" data-category="<%= cat[event.category] %>">
+                  <img class="event-icon" src="assets/icons/<%= cat[event.category] %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
+                  <div class="event-header">
+                    <p>
                       <a href="<%= event["website (online)"] %>"> <%= event.event %></a> <br>
                       <%= event.dates %>, <%= event.time %>
                     </p>
-                    
+                  </div>
+                  
+                  <div class="event-info">
                     <p class="info"><%= event.info %> </p>
                     <p><%= event.price %> </p>
-
-                    <p>
-                      <%= event.phone %> <br>
-                      <%= event.location %>
-                    </p>
                   </div>
-                <% }) %>
-            
-              </div>
-              <div class="noResults">No results found</div>
+                  <hr>
+                  <div class="phone-address">
+                    <p><%= event.phone %><br><%= event.location %></p>
+                  </div>
+                </div>
+              <% }) %>
+          </div>
+        </div>
+          <div class="noResults">Start a new search or select a category</div>
     
           
     </responsive-child>
+
+    
+
+      <div class="bylines">
+        Illustrations by Gabriel Campanario
+        <div>Developed by Emily M. Eng</div>
+        <div>Research by Madeline McKenzie, Lori Taki-Uno and Yasmeen Wafai</div>
+        <div>Additional assistance from Stefanie Loh and Amy Wong</div>
+      </div>
+    </main>
+
+    <%= t.include("partials/_navBottom.html") %>
 
     <script src="app.js" async></script>
     <% if (json.project.production) { %>

@@ -1,39 +1,106 @@
 @import "seattletimes";
+
 body {
-  font-size: 16px;
-}
-
-h1 {
-  font-size: 60px;
-  text-align: center;
-
-  @media @mobile {
-    font-size: 30px;
+  font-size: 19px;
+  font-weight: 400;
+  margin: 0 10px 0 10px;
+  @media @mobile, @tablet{
+    margin: .25;
   }
 }
 
+h1 {
+  font-size: 68px;
+  text-align: center;
+  margin-bottom: 0px;
+  padding-bottom: 40px;
+  font-family: 'Yeseva One', cursive;
+  color: #12562a;
+  animation: neon .5s ease-in-out infinite alternate;
+  @media @mobile {
+    font-size: 35px;
+  }
+}
+
+/*-- Animation Keyframes for h1 glow --*/
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 10px rgba(105, 158, 78, 0.92),
+    0 0 20px rgba(96, 172, 98, 0.541),
+    0 0 12px rgba(21, 231, 74, 0.52),
+    0 0 21px #7dff7b,
+    0 0 50px rgba(38, 194, 24, 0.78),
+    0 0 65px rgba(7, 243, 38, 0.92);
+  }
+  to {
+    text-shadow:
+    0 0 6px rgba(120, 168, 97, 0.92),
+    0 0 30px rgba(45, 102, 48, 0.541),
+    0 0 40px rgba(21, 231, 74, 0.52),
+    0 0 21px #7dff7b,
+    0 0 50px rgba(43, 224, 27, 0.78),
+    0 0 60px rgba(58, 219, 80, 0.92);
+  }
+}
+
+/*-- Head content --*/
 header.top {
   max-width: 960px;
   margin: auto;
-  padding: 0 16px;
+
+  .illo-byline{
+    text-align: right;
+    margin-top: 0;
+    font-size: 13px;
+    color: #70757c;
+  }
+  .chatter{
+    padding: 20px 0 20px 0;
+    max-width: 630px;
+    margin: auto;
+    .pubDate {
+      color: #70757c;
+      font-style: italic;
+    }
+  }
+}
+
+
+/*-- Filter Menu --*/
+.sticky {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  @media @mobile{
+    .filter-icon{
+      display: none;
+    }
+  }
+}
+.sticky + .filters {
+  padding-top: 102px;
 }
 
 .filters {
+  background-color: white;
   font-family: @df-sans;
-  padding-bottom: 20px;
+  padding: 10px 0 40px 0;
 
   .nav-header {
     font-weight: normal;
-    color: @df-middle-gray;
-    font-size: 16px;
+    color: #12562a;
+    font-size: 20px;
+    font-weight: bold;
     text-align: center;
     margin: 0;
   }
 
   .search {
+    font-size: 18px;
     border: 1px solid @df-middle-gray;
-    padding: 4px 8px;
-    width: 200px;
+    padding: 8px 12px;
+    width: 400px;
   }
 
   .advanced {
@@ -56,43 +123,48 @@ header.top {
     list-style-type: none;
     display: block;
     text-align: center;
+    .filter-icon{
+      width: 60px;
+    }
 
     label {
       display: block;
-
     }
   }
 
- 
+
+
 
   input[type=checkbox] {
     display: none;
-
+  
     & + label {
       padding: 2px 8px;
       border: 1px solid @df-light-gray;
       color: @df-middle-gray;
-      border-radius: 2px;
+      border-radius: 8px;
       cursor: pointer;
       margin: 2px;
-      font-size: 14px;
-
+      font-size: 18px;
+    //  .filter-icon{
+    //    opacity: 60%;
+    //  } WHY DOESNT THIS WORK
       &::before {
         content: "";
+       
       }
     }
-
     &:checked + label {
       border: 1px solid @df-dark-gray;
       color: @df-dark-gray;
-
+      
       &::before {
         content: "";
-  
+      
       }
     }
+    
   }
-
   li {
     display: inline-block;
   }
@@ -109,37 +181,69 @@ header.top {
 }
 
 .event {
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  background-color: white;
+
+  @media @mobile{
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 0;
+  }
   border-radius: 20px;
-  padding: 20px;
+  padding: 15px 20px 20px 30px;
 
   .info{
     clear: both;
   }
 
   .event-icon {
+    margin-top: 15px;
     width: 20%;
     float: left;
   }
 
   .event-header{
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 18px;
+    padding-left: 22%;
     a {
       font-size: 20px;
-      color: #0777b3;
+      color: #12562a;
       text-decoration: none;
+      font-weight: bold;
     }  
+  }
+  .event-info{
+    margin: 0 0px 0 20px;
+  }
+  hr{
+    border-top: 1px solid #7e838b;
+    width: 75%;
+    display: none;
+  }
+  .phone-address{
+    margin: 0 20px 0 20px;
+    
+    color: #7e838b;
+    font-style: italic;
   }
 
 }
 
 .noResults{
-  visibility: hidden;
+  display: none;
   text-align: center;
   background-color: #e0e0e0;
   max-width: 80%;
   height: 100px;
   margin: auto;
   line-height: 100px;
+}
+
+
+
+.bylines {
+  font-family: "ff-dagny-web-pro", Helvetica Neue, Helvetica, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  padding-top: 15px;
 }
