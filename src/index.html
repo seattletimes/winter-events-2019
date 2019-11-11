@@ -62,7 +62,7 @@
                   <img class="event-icon" src="assets/icons/<%= cat[event.category] %>.jpg" alt="<%= event.category %>" title="<%= event.category %>">
                   <div class="event-header">
                     <p>
-                      <a href="<%= event["website (online)"] %>"> <%= event.event %></a> <br>
+                      <a href="<%= event.website_online %>"> <%= event.event %></a> <br>
                       <%= event.dates %>, <%= event.time %>
                     </p>
                   </div>
@@ -71,7 +71,7 @@
                     <p class="info"><%= event.info %> </p>
                     <p><%= event.price %> </p>
                   </div>
-                  <hr>
+               
                   <div class="phone-address">
                     <p><%= event.phone %><br><%= event.location %></p>
                   </div>
