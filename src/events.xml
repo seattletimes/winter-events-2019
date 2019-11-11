@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE doc SYSTEM "/SysConfig/Rules/ST.dtd">
+<?EM-dtdExt /SysConfig/Rules/ST.dtx?>
+<?EM-templateName /SysConfig/Times/Offpage/Templates/story.xml?>
+<doc xml:lang="en-us">
+<story>
+
+<%
+
+	var events = {};
+	json.guide.forEach(function(row) {
+		var name = row.event.trim(),
+			description = row.info.trim(),
+			category = row.category.trim(),
+			price = row.price.trim(),
+			location = row.location.trim();
+	});
+
+%>
+</story>
+</doc>
