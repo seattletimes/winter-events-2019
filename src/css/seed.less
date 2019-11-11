@@ -1,11 +1,12 @@
 @import "seattletimes";
 
 body {
+  width: 100%;
   font-size: 19px;
   font-weight: 400;
   margin: 0 10px 0 10px;
   @media @mobile, @tablet{
-    margin: .25;
+    margin: 0;
   }
 }
 
@@ -47,8 +48,7 @@ h1 {
 /*-- Head content --*/
 header.top {
   max-width: 960px;
-  margin: auto;
-
+ 
   .illo-byline{
     text-align: right;
     margin-top: 0;
@@ -85,7 +85,8 @@ header.top {
 .filters {
   background-color: white;
   font-family: @df-sans;
-  padding: 10px 0 40px 0;
+  padding: 10px 0 20px 0;
+  border-bottom: 1px solid #7e838b;
 
   .nav-header {
     font-weight: normal;
@@ -125,15 +126,13 @@ header.top {
     text-align: center;
     .filter-icon{
       width: 60px;
+      margin: 0 25px 0 25px;
     }
 
     label {
       display: block;
     }
   }
-
-
-
 
   input[type=checkbox] {
     display: none;
@@ -163,7 +162,6 @@ header.top {
       
       }
     }
-    
   }
   li {
     display: inline-block;
@@ -171,13 +169,15 @@ header.top {
 }
 
 .grid-container {
+  display:-ms-grid;
   display: grid;
+  -ms-grid-columns:2fr 1fr;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 15px;
   align-items: stretch;
   font-size: 15px;
   font-family: @df-sans;
-  
+
 }
 
 .event {
@@ -215,11 +215,7 @@ header.top {
   .event-info{
     margin: 0 0px 0 20px;
   }
-  hr{
-    border-top: 1px solid #7e838b;
-    width: 75%;
-    display: none;
-  }
+ 
   .phone-address{
     margin: 0 20px 0 20px;
     
