@@ -44,5 +44,8 @@
       "./tasks/lib/browserify-less",
       "./tasks/lib/browserify-text"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.1"
   }
 }

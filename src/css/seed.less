@@ -48,7 +48,12 @@ h1 {
 /*-- Head content --*/
 header.top {
   max-width: 960px;
- 
+ .header-illo{
+   width: 100%;
+   max-width: 600px;
+   margin: auto;
+  display: block;
+ }
   .illo-byline{
     text-align: right;
     margin-top: 0;
@@ -59,6 +64,11 @@ header.top {
     padding: 20px 0 20px 0;
     max-width: 630px;
     margin: auto;
+    .byline {
+      font-weight: bold;
+      margin-bottom: 0;
+      padding-top: 0;
+  }
     .pubDate {
       color: #70757c;
       font-style: italic;
@@ -168,17 +178,40 @@ header.top {
   }
 }
 
-.grid-container {
-  display:-ms-grid;
-  display: grid;
-  -ms-grid-columns:2fr 1fr;
-  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 15px;
-  align-items: stretch;
+
+.grid-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   font-size: 15px;
   font-family: @df-sans;
 
+  @supports (display: grid){
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 15px;
+    align-items: stretch;
+  }
 }
+
+
+
+
+.ie11{
+  .grid-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .event{
+    margin: 15px;
+    min-width: 290px;
+    max-width: 400px;
+    width: calc((100% / 4) - 30px);
+  }
+}
+
 
 .event {
   border: 2px solid #ccc;
