@@ -4,7 +4,6 @@ body {
   width: 100%;
   font-size: 19px;
   font-weight: 400;
-  margin: 0 10px 0 10px;
   @media @mobile, @tablet{
     margin: 0;
   }
@@ -47,7 +46,12 @@ h1 {
 
 /*-- Head content --*/
 header.top {
-  max-width: 960px;
+  padding: 0 10px;
+
+  figure {
+    margin: auto;
+    max-width: 960px;
+  }
  
   .illo-byline{
     text-align: right;
@@ -56,7 +60,7 @@ header.top {
     color: #70757c;
   }
   .chatter{
-    padding: 20px 0 20px 0;
+    padding: 20px 0;
     max-width: 630px;
     margin: auto;
     .pubDate {
@@ -177,7 +181,8 @@ header.top {
   align-items: stretch;
   font-size: 15px;
   font-family: @df-sans;
-
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .event {
@@ -213,11 +218,11 @@ header.top {
     }  
   }
   .event-info{
-    margin: 0 0px 0 20px;
+    // margin: 0 0px 0 20px;
   }
  
   .phone-address{
-    margin: 0 20px 0 20px;
+    // margin: 0 20px 0 20px;
     
     color: #7e838b;
     font-style: italic;
