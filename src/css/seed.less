@@ -117,9 +117,9 @@ header.top {
     .display-flex;
     .justify-content(center);
     .align-items(stretch);
-
+    padding: 0 5px;
     input {
-      margin: 0 20px 0 0;
+      margin: 0 0 0 0;
     }
 
     label[for="editors"] {
@@ -135,11 +135,18 @@ header.top {
     text-align: center;
     .filter-icon{
       width: 60px;
-      margin: 0 25px 0 25px;
+      margin: 0 10px 0 10px;
+      float: left;
     }
-
+    .catLabel{
+      display: inline-block;
+      line-height: 48px;
+      height: 48px;
+    
+    }
     label {
       display: block;
+      
     }
   }
 
@@ -180,8 +187,9 @@ header.top {
 
 .grid-container{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
   font-size: 15px;
   font-family: @df-sans;
   padding-left: 10px;
@@ -190,26 +198,26 @@ header.top {
   @supports (display: grid){
     display: -ms-grid;
     display: grid;
+    @media @mobile {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    }
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 15px;
     align-items: stretch;
   }
 }
 
-
-
-
 .ie11{
-  .grid-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   .event{
-    margin: 15px;
-    min-width: 290px;
-    max-width: 400px;
-    width: calc((100% / 4) - 30px);
+    height: 500px;
+    flex: 1 1 0;
+    // flex-basis: 20%;
+    
+    // width: 259px;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
 
@@ -251,8 +259,6 @@ header.top {
   }
  
   .phone-address{
-    // margin: 0 20px 0 20px;
-    
     color: #7e838b;
     font-style: italic;
   }
