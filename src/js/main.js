@@ -19,7 +19,8 @@ var result;
 
 function detectIE() {
   if(navigator.userAgent.match(/Trident.*rv:11\./)) {
-    $('body').addClass('ie11');
+    console.log("ie11");
+    document.querySelectorAll('body').classList.add('ie11');
   }
 }
 

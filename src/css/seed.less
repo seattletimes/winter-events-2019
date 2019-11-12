@@ -181,8 +181,9 @@ header.top {
 
 .grid-container{
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+
   font-size: 15px;
   font-family: @df-sans;
 
@@ -195,20 +196,16 @@ header.top {
   }
 }
 
-
-
-
 .ie11{
-  .grid-container{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   .event{
-    margin: 15px;
-    min-width: 290px;
-    max-width: 400px;
-    width: calc((100% / 4) - 30px);
+    height: 500px;
+    flex: 1 1 0;
+    // flex-basis: 20%;
+    
+    // width: 259px;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
   }
 }
 
@@ -250,8 +247,7 @@ header.top {
   }
  
   .phone-address{
-    margin: 0 20px 0 20px;
-    
+    margin: 0 20px 0 20px;   
     color: #7e838b;
     font-style: italic;
   }
