@@ -14,15 +14,10 @@ var events = document.querySelectorAll(".event");
 var resultBox = document.querySelector(".noResults");
 var header = document.querySelector(".filters");
 var sticky = header.offsetTop;
+var eventGrid = document.querySelector(".event-grid");
 var hide = [];
 var result; 
 
-function detectIE() {
-  if(navigator.userAgent.match(/Trident.*rv:11\./)) {
-    console.log("ie11");
-    document.querySelectorAll('body').classList.add('ie11');
-  }
-}
 
 
 function filterByCategory(){
@@ -106,12 +101,19 @@ function noResults(){
 function fixNav(){
   if(window.pageYOffset > sticky) {
     header.classList.add("sticky");
-  } 
+    } 
   else{
     header.classList.remove("sticky");
   }
 }
 
+
+function detectIE() {
+  if(navigator.userAgent.match(/Trident.*rv:11\./)) {
+    console.log("ie11");
+    eventGrid.classList.add("ie11");
+  }
+}
 
 function catListener(){
   for(var x = 0; x < catList.length; x++){

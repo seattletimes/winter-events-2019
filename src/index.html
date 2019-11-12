@@ -17,44 +17,46 @@
         <header class="top">
           <h1>Winter Guide 2019</h1>
           <figure>
-            <img class="header-illo" src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
+            <img src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
             <figcaption class="illo-byline">GABRIEL CAMPANARIO / SEATTLE TIMES</figcaption>
           </figure>
           <div class="chatter">
-            <p>The holiday season is here — and with it, comes an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there's no shortage of ways to have some festive fun in the coming weeks. Use this guide to help you decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes for events and outings, always check times and dates before you go.</p>
             <p class="byline">By Seattle Times staff</p>
-            <p class="pubDate">Originally published: May 18, 2019</p>
+            <p class="pubDate">Published May 18, 2019</p>
+            <p>The holiday season is here — and with it, comes an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there's no shortage of ways to have some festive fun in the coming weeks. Use this guide to help you decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes for events and outings, always check times and dates before you go.</p>
+            
           </div>
         </header>
          
-        <main>
+        <main >
             
           <nav class="filters">
-              <div>
-                <h2 class="nav-header">Choose categories</h2>    
+          
+                <h2 class="nav-header">Filter events</h2>    
                 <% var cats = [
+                  { data: "festivals", label: "Festivals" },
                   { data: "lights", label: "Lights"},
                   { data: "markets", label: "Markets" },
-                  { data: "festivals", label: "Festivals" },
-                  { data: "special-events", label: "Special Events" },
                   { data: "parties", label: "Parties" },
                   { data: "runs", label: "Runs" },
+                  { data: "special-events", label: "Special Events" } 
                 ] %>
                 <ul class="categories">
                   <% cats.forEach(function(cat) { %>
                   <li>
                     <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
                     <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="catLabel"><%= cat.label %></span></label>
-                    <!-- Determine best icon position and how to indicate selection without the check?-->
                   </li>
                   <% }) %>
                 </ul>
-              </div>
-              <div class="advanced">
-                <input type="text" placeholder="Search events" class="search" id="search">
-                <input type="checkbox" class="editors" id="editors">
-              </div>
-             </nav>
+              
+                <div class="advanced">
+                    <input type="text" placeholder="Search events" class="search" id="search">
+                    <input type="checkbox" class="editors" id="editors">
+                  </div>
+                 </nav>
+              
+              
            <!-- End filters -->
 
           <div class="event-grid">
@@ -71,12 +73,12 @@
                   </div>
                   
                   <div class="event-info">
-                    <p class="info"><%= event.info %> </p>
-                    <p><%= event.price %> </p>
+                    <p class="details"><%= event.info %> </p>
+                    <p class="eventPrice"><%= event.price.charAt(0).toUpperCase() + event.price.slice(1) %> </p>
                   </div>
                
-                  <div class="phone-address">
-                    <p><%= event.phone %><br><%= event.location %></p>
+                  <div >
+                    <p class="phone-address"><%= event.phone %><br><%= event.location %></p>
                   </div>
                 </div>
               <% }) %>
@@ -89,14 +91,15 @@
 
     
 
-      <div class="bylines">
+      <div class="credits">
         Illustrations by Gabriel Campanario
-        <div>Developed by Emily M. Eng</div>
-        <div>Research by Madeline McKenzie, Lori Taki-Uno and Yasmeen Wafai</div>
-        <div>Additional assistance from Stefanie Loh and Amy Wong</div>
+        <div>Developed by Miranda Hardy and Hilary Fung</div>
+        <div>Research by Yasmeen Wafai</div>
+        <div>Project editing by Emily Eng and Stefanie Loh</div>
       </div>
     </main>
 
+    <%= t.include("partials/_dontMiss.html", grunt.data.json) %>
     <%= t.include("partials/_navBottom.html") %>
 
     <script src="app.js" async></script>
