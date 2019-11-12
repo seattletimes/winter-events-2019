@@ -17,13 +17,13 @@
 
 <text>
 <% for (var cat in events) { %>
-	<subhead><%= cat %></subhead>
+	<subhead class="eventcategory"><%= cat %></subhead>
 	<% for (var i in events[cat]) { %>
 		<% var event = events[cat][i] %>
-		<p><%= event.event %></p>
+		<p class="eventname"><%= event.event %></p>
 		<p>
 			<leadin><%= event.dates %></leadin>
-			<%= event.info %>. <%= event.dates %>, <%= event.location %>, <%= event.price %> (<% event.phone ? `${event.phone} or ` : `` %><%= event.website_print %>)
+			<%= event.info %>. <%= event.dates %>, <%= event.location %>, <%= event.price === "free event" ? "free" : event.price %> (<% event.phone ? `${event.phone} or ` : `` %><%= event.website_print %>)
 		</p>
 	<% } %>
 <% } %>
