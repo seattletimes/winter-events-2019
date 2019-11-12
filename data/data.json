@@ -1,0 +1,40 @@
+{"stories": [
+	{
+		"link": "https://www.seattletimes.com/business/boeing-aerospace/indonesias-investigation-of-lion-air-737-max-crash-faults-boeing-design-and-faa-certification-as-well-as-airlines-maintenance-and-pilot-errors/",
+		"image": "10242019_lion-air_151725-768x504.jpg",
+		"head": "Indonesia’s devastating final report blames Boeing 737 MAX design, certification in Lion Air crash"
+	},
+	{
+		"link": "https://www.seattletimes.com/business/boeing-aerospace/boeing-pushed-faa-to-arelax-737-max-certification-requirements-for-crew-alerts/",
+		"image": "Boeing-FAA-exemptions-illo-webteaser-300x193.jpg",
+		"head": "Boeing pushed FAA to relax 737 MAX certification requirements for crew alerts"
+	},
+	{
+		"link": "https://www.seattletimes.com/business/boeing-aerospace/boeing-whistleblowers-complaint-says-737-max-safety-upgrades-were-rejected-over-cost/",
+		"image": "Boeing-whistleblower-illo-teaser-300x193.jpg",
+		"head": "Boeing rejected 737 MAX safety upgrades before fatal crashes, whistleblower says"
+	},
+	{
+		"link": "https://www.seattletimes.com/business/boeing-aerospace/muilenburg-out-as-boeing-chairman-keeps-ceo-position/",
+		"image": "tzr_163127-300x193.jpg",
+		"head": "Dennis Muilenburg out as Boeing chairman but keeps CEO position"
+	}
+],
+"credits": [
+	{
+		"name": "<a href='https://www.seattletimes.com/author/dominic-gates/'>Dominic Gates</a> and Mike Baker",
+		"role": "Reporting"
+	},
+	{
+		"name": "<a href='https://www.seattletimes.com/author/mark-nowlin/'>Mark Nowlin</a>",
+		"role": "Graphics"
+	},
+	{
+		"name": "Hilary Fung",
+		"role": "Design and development"
+	},
+	{
+		"name": "Laura Gordon, Rami Grunbaum and Frank Mina",
+		"role": "Editing"
+	}
+]}

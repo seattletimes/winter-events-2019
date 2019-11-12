@@ -2,10 +2,14 @@ require("./lib/ads");
 var paywall = require("./lib/paywall");
 setTimeout(() => paywall(11595997), 3000);
 
+// var processorsArray = [
+//   require('autoprefixer')({ grid:true, browsers: ['>1%']  })
+// ];
 
 var catList = document.querySelectorAll(".filter-buttons");
 var searchBox = document.querySelector(".filters .search");
 
+// $(".event")
 var events = document.querySelectorAll(".event");
 var resultBox = document.querySelector(".noResults");
 var header = document.querySelector(".filters");
@@ -13,8 +17,15 @@ var sticky = header.offsetTop;
 var hide = [];
 var result; 
 
+function detectIE() {
+  if(navigator.userAgent.match(/Trident.*rv:11\./)) {
+    $('body').addClass('ie11');
+  }
+}
+
+
 function filterByCategory(){
-  if (hide.includes(this.dataset.category)){
+  if (hide.indexOf(this.dataset.category) > -1){
     indexCat = hide.indexOf(this.dataset.category);
     hide.splice(indexCat, 1);
   }
@@ -24,62 +35,62 @@ function filterByCategory(){
   combineFilters();
 }
 
+
 function combineFilters(){
   result = 0;
   var searchText = searchBox.value.toLowerCase();
   if(hide.length == 6){
-    if (searchText.length>0){
-      catList.forEach(function(element){
-        hide = [];
-        element.checked="checked"; 
-      })
-      events.forEach(function(element){
-        var eventText = element.innerText.toLowerCase();
-        if (eventText.search(searchText) == -1){
-          element.style.display="none";
+    if(searchText.length>0){
+      for(var i = 0; i<catList.length; i++){
+        hide = []
+        catList[i].checked="checked";
+      }
+      for(var x = 0; x<events.length; x++){
+        var eventText = events[x].innerText.toLowerCase();
+        if(eventText.search(searchText) == -1){
+          events[x].style.display="none";
         }
         else{
-          element.style.display="inline";
-          result =+ 1;
+          events[x].style.display="inline";
+          result+=1;
         }
-      })
+      }
       noResults();
     }
     else{
-      events.forEach(function(element){
-        element.style.display="none";
-      })
+      for(var y=0; y<events.length; y++){
+        events[y].style.display="none";
+      }
       resultBox.style.display="block";
     }
   }
-
-  else if (hide.length >= 0 && hide.length < 6){
-    if (searchText.length == 0){
-      events.forEach(function(element){
-        if (hide.includes(element.dataset.category)){
-          element.style.display="none";
+  else if(hide.length >= 0 && hide.length < 6){
+    if(searchText.length == 0){
+      for(var z = 0; z<events.length; z++){
+        if(hide.indexOf(events[z].dataset.category) > -1){
+          events[z].style.display="none";
         }
         else{
-          element.style.display="inline";
-          result =+1;
+          events[z].style.display="inline";
+          result += 1;
         }
-      })
+      }
       noResults();
     }
     else if(searchText.length > 1){
-      events.forEach(function(element){
-        var eventText = element.innerText.toLowerCase();
-        if (eventText.search(searchText) == -1 || hide.includes(element.dataset.category)){
-          element.style.display="none";
+      for( var a = 0; a<events.length; a++){
+        var eventText = events[a].innerText.toLowerCase();
+        if (eventText.search(searchText) == -1 || (hide.indexOf(events[a].dataset.category) > -1) ){
+          events[a].style.display="none";
         }
         else{
-          element.style.display="inline";
+          events[a].style.display="inline";
           result =+ 1;
         }
-      })
+      }
       noResults();
     }
-  }
+  }    
 }
 
 function noResults(){
@@ -100,9 +111,15 @@ function fixNav(){
   }
 }
 
-catList.forEach(function(element){
-   element.addEventListener("click", filterByCategory);
-})
+
+function catListener(){
+  for(var x = 0; x < catList.length; x++){
+    catList[x].addEventListener("click", filterByCategory);
+  }
+}
+catListener();
+
 searchBox.addEventListener("keyup", combineFilters);
 window.onscroll = function() {fixNav()};
+detectIE();
 
