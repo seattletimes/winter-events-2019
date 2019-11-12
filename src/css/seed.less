@@ -117,9 +117,9 @@ header.top {
     .display-flex;
     .justify-content(center);
     .align-items(stretch);
-
+    padding: 0 5px;
     input {
-      margin: 0 20px 0 0;
+      margin: 0 0 0 0;
     }
 
     label[for="editors"] {
@@ -135,11 +135,18 @@ header.top {
     text-align: center;
     .filter-icon{
       width: 60px;
-      margin: 0 25px 0 25px;
+      margin: 0 10px 0 10px;
+      float: left;
     }
-
+    .catLabel{
+      display: inline-block;
+      line-height: 48px;
+      height: 48px;
+    
+    }
     label {
       display: block;
+      
     }
   }
 
@@ -191,6 +198,10 @@ header.top {
   @supports (display: grid){
     display: -ms-grid;
     display: grid;
+    @media @mobile {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+    }
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     grid-gap: 15px;
     align-items: stretch;
