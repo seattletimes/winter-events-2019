@@ -6,29 +6,28 @@
 <story>
 
 <%
-	var events = {};
+	var events = {}
+
 	json.guide.forEach(function(row) {
-		var name = row.event.trim(),
-			description = row.info.trim(),
-			category = row.category.trim(),
-			price = row.price.trim(),
-			location = row.location.trim(),
-			website = row.website_print.trim(),
-			dates = row.dates.trim(),
-			time = row.time.trim();
+		var cat = row.category.trim();
+		if (!events[cat]) events[cat] = [];
+		events[cat].push(row);
 	});
 %>
 
-<% for (var e in events) { %>
-	<p><%= row.name %></p>
-	<p><%= row.description %></p>
-	<p><%= row.category %></p>
-	<p><%= row.price %></p>
-	<p><%= row.location %></p>
-	<p><%= row.website %></p>
-	<p><%= row.dates %></p>
-	<p><%= row.time %></p>
+<text>
+<% for (var cat in events) { %>
+	<subhead><%= cat %></subhead>
+	<% for (var i in events[cat]) { %>
+		<% var event = events[cat][i] %>
+		<p><%= event.event %></p>
+		<p>
+			<leadin><%= event.dates %></leadin>
+			<%= event.info %>. <%= event.dates %>, <%= event.location %>, <%= event.price %> (<% event.phone ? `${event.phone} or ` : `` %><%= event.website_print %>)
+		</p>
+	<% } %>
 <% } %>
+</text>
 
 </story>
 </doc>
