@@ -11,54 +11,47 @@
     <%= t.include("partials/_head.html", grunt.data.json) %>
   </head>
   <body>
-      <responsive-child>
-        <%= t.include("partials/_nav.html") %>
-           
-        <header class="top">
-          <h1>Winter Guide 2019</h1>
-          <figure>
-            <img src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
-            <figcaption class="illo-byline">GABRIEL CAMPANARIO / SEATTLE TIMES</figcaption>
-          </figure>
-          <div class="chatter">
-            <p class="byline">By Seattle Times staff</p>
-            <p class="pubDate">Published May 18, 2019</p>
-            <p>The holiday season is here — and with it, comes an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there's no shortage of ways to have some festive fun in the coming weeks. Use this guide to help you decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes for events and outings, always check times and dates before you go.</p>
-            
-          </div>
-        </header>
+    <responsive-child>
+      <%= t.include("partials/_nav.html") %>  
+      <header class="top">
+        <h1>Winter Guide 2019</h1>
+        <figure>
+          <img src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
+          <figcaption class="illo-byline">GABRIEL CAMPANARIO / SEATTLE TIMES</figcaption>
+        </figure>
+        <div class="chatter">
+          <p class="byline">By Seattle Times staff</p>
+          <p class="pubDate">Published May 18, 2019</p>
+          <p>The holiday season is here — and with it, an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there’s no shortage of ways to have festive fun in the coming weeks. Use this guide to help decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes, always check times and dates before you go.</p>
+        </div>
+      </header>
          
-        <main >
-            
-          <nav class="filters">
-          
-                <h2 class="nav-header">Filter events</h2>    
-                <% var cats = [
-                  { data: "festivals", label: "Festivals" },
-                  { data: "lights", label: "Lights"},
-                  { data: "markets", label: "Markets" },
-                  { data: "parties", label: "Parties" },
-                  { data: "runs", label: "Runs" },
-                  { data: "special-events", label: "Special Events" } 
-                ] %>
-                <ul class="categories">
-                  <% cats.forEach(function(cat) { %>
-                  <li>
-                    <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
-                    <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="catLabel"><%= cat.label %></span></label>
-                  </li>
-                  <% }) %>
-                </ul>
-              
-                <div class="advanced">
-                    <input type="text" placeholder="Search events" class="search" id="search">
-                    <input type="checkbox" class="editors" id="editors">
-                  </div>
-                 </nav>
-              
-              
-           <!-- End filters -->
-
+      <main > 
+        <nav class="filters">
+          <h2 class="nav-header">Filter events</h2>    
+          <% var cats = [
+            { data: "festivals", label: "Festivals" },
+            { data: "lights", label: "Lights"},
+            { data: "markets", label: "Markets" },
+            { data: "parties", label: "Parties" },
+            { data: "runs", label: "Runs" },
+            { data: "special-events", label: "Special Events" } 
+          ] %>
+          <ul class="categories">
+            <% cats.forEach(function(cat) { %>
+              <li>
+                <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
+                <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="catLabel"><%= cat.label %></span></label>
+              </li>
+            <% }) %>
+          </ul>
+          <div class="advanced">
+            <input type="text" placeholder="Search events" class="search" id="search">
+            <input type="checkbox" class="editors" id="editors">
+          </div>
+         </nav>
+         <!-- End filters -->   
+           
           <div class="event-grid">
           <div class="grid-container">
             <% var cat = {Lights: "lights", Markets: "markets", Festivals: "festivals", "Special Events": "special-events", Parties: "parties", Runs: "runs"} %>
@@ -87,9 +80,7 @@
           <div class="noResults">Start a new search or select a category</div>
     
           
-    </responsive-child>
-
-    
+      </responsive-child>
 
       <div class="credits">
         Illustrations by Gabriel Campanario
