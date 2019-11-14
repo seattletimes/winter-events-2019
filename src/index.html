@@ -9,19 +9,29 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Yeseva+One&display=swap" rel="stylesheet">
     <%= t.include("partials/_head.html", grunt.data.json) %>
+    <% if (json.project.production && !json.project.embedded) { %>
+      <%= t.include("partials/_dataLayer.html") %>
+      <%= t.include("partials/_gtm.html") %>
+    <% } %>
   </head>
   <body>
+    <% if (json.project.production && !json.project.embedded) { %>
+      <%= t.include("partials/_gtmNoScript.html") %>
+    <% } %>
     <responsive-child>
       <%= t.include("partials/_nav.html") %>  
       <header class="top">
         <h1>Winter Guide 2019</h1>
         <figure>
-          <img src="./assets/main-illo.jpg" alt="Seattle Times Winter Guide 2019 image">
+          <img class="main-illo-lines" src="./assets/main-illo.png" alt="Seattle Times Winter Guide 2019 image">
+          <img class="main-illo-lights" src="./assets/main-illo-lights.png" alt="Seattle Times Winter Guide 2019 Image">
           <figcaption class="illo-byline">GABRIEL CAMPANARIO / SEATTLE TIMES</figcaption>
         </figure>
         <div class="chatter">
-          <p class="byline">By Seattle Times staff</p>
-          <p class="pubDate">Published May 18, 2019</p>
+          <div class="bylinePubdate">
+            <p class="byline">By Seattle Times staff</p>
+            <p class="pubDate"></p>Published Nov. 17, 2019</p>
+          </div>
           <p>The holiday season is here — and with it, an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there’s no shortage of ways to have festive fun in the coming weeks. Use this guide to help decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes, always check times and dates before you go.</p>
         </div>
       </header>
@@ -38,15 +48,20 @@
             { data: "special-events", label: "Special Events" } 
           ] %>
           <ul class="categories">
+              <li>
+                  <input type="checkbox" class="all-events" data-category="all-events" id="all-events" checked="checked">
+                  <label for="all-events"><img class="filter-icon" src="assets/icons/all-events.jpg"><span class="catLabel">All Events</span></label>
+              </li>
             <% cats.forEach(function(cat) { %>
               <li>
-                <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="checked">
+                <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="">
                 <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="catLabel"><%= cat.label %></span></label>
               </li>
             <% }) %>
           </ul>
           <div class="advanced">
             <input type="text" placeholder="Search events" class="search" id="search">
+            <button class="clear-search" type="reset"><img src="assets/x-icon.svg"></button>
             <input type="checkbox" class="editors" id="editors">
           </div>
          </nav>
@@ -84,9 +99,9 @@
 
       <div class="credits">
         Illustrations by Gabriel Campanario
-        <div>Developed by Miranda Hardy and Hilary Fung</div>
+        <div>Design and Development by Miranda Hardy</div>
         <div>Research by Yasmeen Wafai</div>
-        <div>Project editing by Emily Eng and Stefanie Loh</div>
+        <div>Project editing by Emily Eng and Trevor Lenzmeier</div>
       </div>
     </main>
 

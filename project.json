@@ -6,15 +6,16 @@
     },
     "live": {
       "bucket": "projects.seattletimes.com",
-      "path": ""
+      "path": "2019/winter-event-guide"
     }
   },
-  "title": "",
-  "description": "",
-  "url": "",
+  "author": "Seattle Times staff",
+  "title": "Winter and Holiday Events in Seattle 2019 | The Seattle Times",
+  "description": "A guide to winter and holiday events in the Seattle area, including festivals, lights, markets, parties, and runs",
+  "url": "https://projects.seattletimes.com/2019/winter-event-guide",
   "image": "assets/social.jpg",
   "sheets": ["1kBcsq1LNvYntp0NJGv6Yf6ic1T7jfAbpjvns1O2spJA"],
   "standout": false,
-  "embedded": true,
-  "production": false
+  "embedded": false,
+  "production": true
 }

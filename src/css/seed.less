@@ -16,7 +16,7 @@ h1 {
   padding-bottom: 40px;
   font-family: 'Yeseva One', cursive;
   color: #12562a;
-  animation: neon .5s ease-in-out infinite alternate;
+  animation: neon 1s ease-in-out infinite alternate;
   letter-spacing: 2px;
   @media @mobile {
     font-size: 35px;
@@ -52,29 +52,65 @@ header.top {
   figure {
     margin: auto;
     max-width: 960px;
+    position: relative;
+
+    .main-illo-lines{
+      position: absolute;
+      top:auto;
+      left: auto;
+      z-index: 1;
+    }
+    .main-illo-lights{
+      top: auto;
+      left: auto;
+      -webkit-animation: fade 1s alternate infinite;
+      animation: fade 1s alternate infinite;
+    }
+  }
+
+  @-webkit-keyframes fade {
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .4;
+    }
+  }
+  
+  @keyframes fade {
+    10% {
+      opacity: 1;
+    }
+    100% {
+      opacity: .4;
+    }
   }
 
   .illo-byline{
-    text-align: right;
-    margin-top: 0;
-    font-size: 13px;
     color: #70757c;
+    font-family: "ff-dagny-web-pro", Helvetica Neue, Helvetica, sans-serif;
+    font-style: italic;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 18px;
   }
   .chatter{
     padding: 20px 0;
     max-width: 630px;
     margin: auto;
-    .byline {
-      font-weight: bold;
-      margin-bottom: 0;
-      padding: 0;
-  }
-    .pubDate {
-      color: #70757c;
-      font-style: italic;
-      color: #70757c;
-      font-size: 15px;
-      margin: 0;
+    .bylinePubdate{
+      text-align: center;
+      .byline {
+        font-weight: bold;
+        margin-bottom: 0;
+        padding: 0;
+      }
+      .pubDate {
+        color: #70757c;
+        font-style: italic;
+        margin: 0;
+      }
     }
   }
 }
@@ -91,8 +127,8 @@ header.top {
   h2{
     display: none;
   }
-  .advanced input{
-    display: none;
+  .advanced{
+    display: none !important;
   }
   @media @mobile{
     .filter-icon{
@@ -122,26 +158,36 @@ header.top {
     margin: 0;
   }
 
-  .search {
-    font-size: 18px;
+   .search {
+     width:100%;
+     border: none;
+     line-height: 30px;
+     font-size: 18px;
+     background-color: #f3f3f3;
+   }
+
+  .advanced {
+    margin: auto;
+    border-radius: 10px;
+    align-content: center;
     border: 1px solid @df-middle-gray;
     padding: 8px 12px;
     width: 400px;
+    @media @mobile{
+      width: 90%;
+    }
     background-color: #f3f3f3;
-  }
-
-  .advanced {
     .display-flex;
     .justify-content(center);
     .align-items(stretch);
-    padding: 0 5px;
-    input {
-      margin: 0 0 0 0;
-      border-radius: 10px;
-    }
-
-    label[for="editors"] {
-      margin: 0;
+    button{
+      border: none;
+      width: 10%;
+      background-color: transparent;
+      display: none;
+      img{
+        width: 100%;
+      }
     }
   }
 
@@ -219,7 +265,7 @@ header.top {
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     }
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     grid-gap: 15px;
     align-items: stretch;
   }
@@ -240,7 +286,7 @@ header.top {
 }
 
 .event-grid{
-  background-color: #175d3040;
+  background-color: #fff67fd1 ;
   padding: 10px 0;
 }
 
@@ -297,6 +343,7 @@ header.top {
   line-height: 100px;
 }
 .credits {
+  margin: 10px 0;
   font-family: "ff-dagny-web-pro", Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
   text-align: center;

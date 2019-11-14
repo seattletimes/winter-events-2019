@@ -1,10 +1,5 @@
-require("./lib/ads");
 var paywall = require("./lib/paywall");
-setTimeout(() => paywall(11595997), 3000);
-
-// var processorsArray = [
-//   require('autoprefixer')({ grid:true, browsers: ['>1%']  })
-// ];
+setTimeout(() => paywall(12169135), 3000);
 
 var catList = document.querySelectorAll(".filter-buttons");
 var searchBox = document.querySelector(".filters .search");
@@ -15,18 +10,23 @@ var resultBox = document.querySelector(".noResults");
 var header = document.querySelector(".filters");
 var sticky = header.offsetTop;
 var eventGrid = document.querySelector(".event-grid");
-var hide = [];
+var clearSearch = document.querySelector(".clear-search");
+var allEventsButton = document.querySelector(".all-events");
+var show = [];
 var result; 
 
 
 
 function filterByCategory(){
-  if (hide.indexOf(this.dataset.category) > -1){
-    indexCat = hide.indexOf(this.dataset.category);
-    hide.splice(indexCat, 1);
+  if (show.indexOf(this.dataset.category) > -1){
+    indexCat = show.indexOf(this.dataset.category);
+    show.splice(indexCat, 1);
   }
   else {
-    hide.push(this.dataset.category);
+    show.push(this.dataset.category);
+  }
+  if(show.length > 0){
+    allEventsButton.checked="";
   }
   combineFilters();
 }
@@ -35,58 +35,37 @@ function filterByCategory(){
 function combineFilters(){
   result = 0;
   var searchText = searchBox.value.toLowerCase();
-  if(hide.length == 6){
-    if(searchText.length>0){
-      for(var i = 0; i<catList.length; i++){
-        hide = []
-        catList[i].checked="checked";
-      }
-      for(var x = 0; x<events.length; x++){
-        var eventText = events[x].innerText.toLowerCase();
-        if(eventText.search(searchText) == -1){
-          events[x].style.display="none";
-        }
-        else{
-          events[x].style.display="inline";
-          result+=1;
-        }
-      }
-      noResults();
-    }
-    else{
-      for(var y=0; y<events.length; y++){
-        events[y].style.display="none";
-      }
-      resultBox.style.display="block";
-    }
-  }
-  else if(hide.length >= 0 && hide.length < 6){
+
+  if(show.length > 0){
     if(searchText.length == 0){
       for(var z = 0; z<events.length; z++){
-        if(hide.indexOf(events[z].dataset.category) > -1){
-          events[z].style.display="none";
+        if(show.indexOf(events[z].dataset.category) > -1){
+          events[z].style.display="inline";
         }
         else{
-          events[z].style.display="inline";
+          events[z].style.display="none";
           result += 1;
         }
       }
       noResults();
     }
-    else if(searchText.length > 1){
+    else if(searchText.length > 0){
       for( var a = 0; a<events.length; a++){
         var eventText = events[a].innerText.toLowerCase();
-        if (eventText.search(searchText) == -1 || (hide.indexOf(events[a].dataset.category) > -1) ){
-          events[a].style.display="none";
+        if (eventText.search(searchText) == -1 && (show.indexOf(events[a].dataset.category) != -1) ){
+          events[a].style.display="inline";
         }
         else{
-          events[a].style.display="inline";
+          events[a].style.display="none";
           result =+ 1;
         }
       }
       noResults();
     }
-  }    
+  } 
+  else{
+    noResults();
+  }   
 }
 
 function noResults(){
@@ -107,6 +86,24 @@ function fixNav(){
   }
 }
 
+function allEvents(){
+  show = [];
+  searchBox.value = "";
+  allEventsButton.checked="checked";
+  for(var x = 0; x < catList.length; x++){
+    catList[x].checked="";
+  }
+  for(var i = 0; i<events.length; i++){
+    events[i].style.display="inline";
+  }  
+}
+
+function clearSearchBox(){
+  searchBox.value = "";
+  clearSearch.style.display="none";
+
+  combineFilters();
+}
 
 function detectIE() {
   if(navigator.userAgent.match(/Trident.*rv:11\./)) {
@@ -122,7 +119,22 @@ function catListener(){
 }
 catListener();
 
-searchBox.addEventListener("keyup", combineFilters);
+function searchListener(){
+  allEventsButton.checked="";
+  clearSearch.style.display="inline";
+  combineFilters();
+}
+
+
+clearSearch.addEventListener("click", clearSearchBox);
+allEventsButton.addEventListener("click", allEvents);
+searchBox.addEventListener("keyup", searchListener);
 window.onscroll = function() {fixNav()};
 detectIE();
+
+window.onload = function() {
+  console.log("loaded");
+  for(var x = 0; x < catList.length; x++){
+  catList[x].checked="";
+}}
 
