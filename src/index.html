@@ -28,9 +28,9 @@
           <figcaption class="illo-byline">GABRIEL CAMPANARIO / SEATTLE TIMES</figcaption>
         </figure>
         <div class="chatter">
-          <div class="bylinePubdate">
+          <div class="byline-pubdate">
             <p class="byline">By Seattle Times staff</p>
-            <p class="pubDate"></p>Published Nov. 17, 2019</p>
+            <p class="pub-date"></p>Published Nov. 17, 2019</p>
           </div>
           <p>The holiday season is here — and with it, an abundance of events and activities are coming to the Seattle area. Whether you want to shop for gifts at a holiday market, take the kids to see Santa or hum along to cheery holiday music, there’s no shortage of ways to have festive fun in the coming weeks. Use this guide to help decide where to go and what to do before, after or on the holidays. In case of cancellations or schedule changes, always check times and dates before you go.</p>
         </div>
@@ -38,7 +38,7 @@
          
       <main > 
         <nav class="filters">
-          <h2 class="nav-header">Filter events</h2>    
+          <h2 class="nav-header">Choose categories</h2>    
           <% var cats = [
             { data: "festivals", label: "Festivals" },
             { data: "lights", label: "Lights"},
@@ -50,12 +50,12 @@
           <ul class="categories">
               <li>
                   <input type="checkbox" class="all-events" data-category="all-events" id="all-events" checked="checked">
-                  <label for="all-events"><img class="filter-icon" src="assets/icons/all-events.jpg"><span class="catLabel">All Events</span></label>
+                  <label for="all-events"><img class="filter-icon" src="assets/icons/all-events.jpg"><span class="cat-label">All Events</span></label>
               </li>
             <% cats.forEach(function(cat) { %>
               <li>
                 <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="">
-                <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="catLabel"><%= cat.label %></span></label>
+                <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="cat-label"><%= cat.label %></span></label>
               </li>
             <% }) %>
           </ul>
@@ -82,7 +82,7 @@
                   
                   <div class="event-info">
                     <p class="details"><%= event.info %> </p>
-                    <p class="eventPrice"><%= event.price.charAt(0).toUpperCase() + event.price.slice(1) %> </p>
+                    <p class="event-price"><%= event.price.charAt(0).toUpperCase() + event.price.slice(1) %> </p>
                   </div>
                
                   <div >
@@ -92,7 +92,7 @@
               <% }) %>
           </div>
         </div>
-          <div class="noResults">Start a new search or select a category</div>
+          <div class="no-results">Start a new search or select a category</div>
     
           
       </responsive-child>
