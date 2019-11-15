@@ -1,5 +1,5 @@
 var paywall = require("./lib/paywall");
-setTimeout(() => paywall(12169135), 3000);
+setTimeout(() => paywall(12169135), 5000);
 
 var catList = document.querySelectorAll(".filter-buttons");
 var searchBox = document.querySelector(".filters .search");
