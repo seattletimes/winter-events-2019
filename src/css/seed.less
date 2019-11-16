@@ -177,7 +177,7 @@ header.top {
     .display-flex;
     .justify-content(center);
     
-    button{
+    .clear-search{
       border: none;
       width: 10%;
       background-color: transparent;
@@ -206,12 +206,10 @@ header.top {
     label {
       display: block;
     }
-  }
-
-  input[type=checkbox] {
-    display: none;
   
-    & + label {
+
+  button {
+    background-color: white;
       padding: 2px 8px;
       border: 1px solid @df-light-gray;
       color: @df-middle-gray;
@@ -222,25 +220,21 @@ header.top {
       .filter-icon{
         opacity: 40%;
       }
-      &::before {
-        content: ""; 
-      }
     }
-    &:checked + label {
+    .checked {
       border: 1px solid @df-dark-gray;
       color: @df-dark-gray;
       .filter-icon{
         opacity: 100%;
       }
-      &::before {
-        content: "";
-      }
     }
+  
   }
   li {
     display: inline-block;
   }
-}
+}             
+
 
 .grid-container{
   display: flex;

@@ -15,19 +15,19 @@ var resultBox = document.querySelector(".no-results");
 var show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'speccial-events'];
 var result; 
 
-function filterByCategory(){
+function filterByCategory(cat){
   if(show.length == 6){
     show = [];
   }
-  if (show.indexOf(this.dataset.category) > -1){
-    indexCat = show.indexOf(this.dataset.category);
+  if (show.indexOf(cat) > -1){
+    indexCat = show.indexOf(cat);
     show.splice(indexCat, 1);
   }
   else {
-    show.push(this.dataset.category);
+    show.push(cat);
   }
   if(show.length > 0){
-    allEventsButton.checked="";
+    allEventsButton.classList.remove("checked");
   }
   combineFilters();
 }
@@ -91,11 +91,17 @@ function fixNav(){
 }
 
 function allEvents(){
+  if (this.classList.length == 1){
+    this.classList.add("checked");
+  }
+  else{
+    this.classList.remove("checked");
+  }
   searchBox.value = "";
-  allEventsButton.checked="checked";
+  
   show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'speccial-events'];
   for(var x = 0; x < catList.length; x++){
-    catList[x].checked="";
+    catList[x].classList.remove("checked");
   }
   for(var i = 0; i<events.length; i++){
     events[i].style.display="inline";
@@ -114,9 +120,19 @@ function detectIE() {
   }
 }
 
+function catButton() {
+  if (this.classList.length == 1){
+    this.classList.add("checked");
+  }
+  else{
+    this.classList.remove("checked");
+  }
+  filterByCategory(this.dataset.category);
+}
+
 function catlistener(){
   for(var x = 0; x < catList.length; x++){
-    catList[x].addEventListener("click", filterByCategory);
+    catList[x].addEventListener("click", catButton);
   }
 }
 catlistener();
@@ -132,9 +148,4 @@ allEventsButton.addEventListener("click", allEvents);
 searchBox.addEventListener("keyup", searchListener);
 window.onscroll = function() {fixNav()};
 detectIE();
-
-window.onload = function() {
-  for(var x = 0; x < catList.length; x++){
-  catList[x].checked="";
-}}
 

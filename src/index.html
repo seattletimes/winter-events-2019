@@ -49,20 +49,23 @@
           ] %>
           <ul class="categories">
               <li>
-                  <input type="checkbox" class="all-events" data-category="all-events" id="all-events" checked="checked">
-                  <label for="all-events"><img class="filter-icon" alt="" src="assets/icons/all-events.jpg"><span class="cat-label">All Events</span></label>
+                  <button type="button" class="all-events checked" data-category="all-events">
+                      <img class="filter-icon" src="assets/icons/all-events.jpg">
+                      <span class="cat-label">All Events</span>
+                  </button>
               </li>
             <% cats.forEach(function(cat) { %>
               <li>
-                <input type="checkbox" class="filter-buttons" data-category="<%= cat.data %>" id="<%= cat.data %>" checked="">
-                <label for="<%= cat.data %>"><img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg"><span class="cat-label"><%= cat.label %></span></label>
+                <button type="button" class="filter-buttons" data-category="<%= cat.data %>">
+                  <img class="filter-icon" src="assets/icons/<%= cat.data %>.jpg">
+                  <span class="cat-label"><%= cat.label %></span>
+                </button>
               </li>
             <% }) %>
           </ul>
           <div class="advanced">
             <input type="text" placeholder="Search events" class="search" id="search">
             <button class="clear-search" type="reset"><img src="assets/x-icon.svg"></button>
-            <input type="checkbox" class="editors" id="editors">
           </div>
          </nav>
          <!-- End filters -->   
