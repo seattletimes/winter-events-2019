@@ -90,8 +90,14 @@ function fixNav(){
   }
 }
 
-function allEvents(){
+function clearSearchBox(){
   searchBox.value = "";
+  clearSearch.style.display="none";
+  combineFilters();
+}
+
+function allEvents(){
+  clearSearchBox();
   show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'special-events'];
   if (this.classList.length == 1){
     this.classList.add("checked");
@@ -106,12 +112,6 @@ function allEvents(){
   for(var i = 0; i<events.length; i++){
     events[i].style.display="inline";
   }  
-}
-
-function clearSearchBox(){
-  searchBox.value = "";
-  clearSearch.style.display="none";
-  combineFilters();
 }
 
 function detectIE() {
