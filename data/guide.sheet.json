@@ -206,6 +206,17 @@
     "time": "10 a.m.-10 p.m."
   },
   {
+    "event": "Macy's Downtown Holiday Parade",
+    "info": "29th annual parade, bands and performance teams, dignitaries and special appearances, followed by the opening of Santaland (through Dec. 24, hours vary), parade starts at 9 a.m.",
+    "category": "Special Events",
+    "price": "free event",
+    "location": "Downtown Seattle",
+    "website_online": "https://www.macys.com/s/seattle-parade/",
+    "website_print": "macys.com/s/seattle-parade/",
+    "dates": "Nov. 29",
+    "time": "9 a.m."
+  },
+  {
     "event": "Holiday Fair",
     "info": "Arts and crafts fair with handwoven rugs and clothing, jewelry, woodwork, paintings and more, local musicans, a portion of sales go to the Jefferson County Food Bank",
     "category": "Markets",
@@ -304,7 +315,7 @@
     "info": "All-day celebration of downtown Renton's local shops and restaurants, shops open at 10 a.m., holiday pop-up market and kids activites from 3-6 p.m., tree lighting and arrival of Santa at 5 p.m.",
     "category": "Markets",
     "price": "free event",
-    "location": "Piazza Park 233 Burnett Ave. S., Renton",
+    "location": "Piazza Park, 233 Burnett Ave. S., Renton",
     "website_online": "https://rentondowntown.com/event/small-business-saturday-and-downtown-tree-lighting/",
     "website_print": "rentondowntown.com",
     "phone": "425-430-7271",
@@ -747,7 +758,7 @@
   },
   {
     "event": "Hometown Holiday",
-    "info": "Holday crafts at select model homes (2-5 p.m.), Santa Claus at the Ten Trails Welcome Center for photographs (3-5 p.m.), lighting of the community tree by Santa with holiday carolers, hot apple cider, cookies, food trucks and children activites (5:30-7 p.m.)",
+    "info": "Holday crafts at select model homes (3-5 p.m.), Santa Claus at the Ten Trails Welcome Center for photographs (3-5 p.m.), lighting of the community tree by Santa with holiday carolers, hot apple cider, cookies, food trucks and children activites (5:30-7 p.m.)",
     "category": "Festivals",
     "price": "free event",
     "location": "Ten Trails, 32607 WIllow Ave., Black Diamond",
@@ -755,7 +766,7 @@
     "website_print": "tentrails.com",
     "phone": "360-469-4043",
     "dates": "Dec. 7",
-    "time": "2-7 p.m."
+    "time": "3-7 p.m."
   },
   {
     "event": "O Yule Full of Gladness: Christmas in Scandinavia",
@@ -979,9 +990,9 @@
   },
   {
     "event": "Candy Cane Lane",
-    "info": "70th anniversary, festive displays, opening night Dec. 7, official celebration/pedestrian night with the Roosevelt Jazz Band band Dec. 10, Husky Marching Band Dec. 12, pedestrian night Dec. 19; through Jan. 1",
+    "info": "70th anniversary, festive displays, opening night Dec. 7, bins at the end of street for food and warm accessories (hats, gloves, etc.) donations, official celebration/pedestrian night with the Roosevelt Jazz Band Dec. 10, Husky Marching Band Dec. 12, pedestrian night Dec. 19; through Jan. 1",
     "category": "Festivals",
-    "price": "free, food donations accepted",
+    "price": "free; food and warm accessories donations accepted",
     "location": "Northeast Ravenna Blvd. and Northesast Park Rd.",
     "website_online": "https://www.facebook.com/SeattleCandyCaneLane/",
     "website_print": "facebook.com/SeattleCandyCaneLane",
@@ -1156,7 +1167,7 @@
     "info": "Festive concerts from The Northwest Firelight Chorale, arrangements of seasonal favorites",
     "category": "Special Events",
     "price": "$12-$22, free/ages 5 and under",
-    "location": "Phinney Lutheran Church, 7500 Greenwood Ave. N., Seattle; St. John the Baptist Episcopal, 3050 California Ave. S.W., Seattle; University Congregational Church, 4515 Sixth Ave. N.E., Seattle",
+    "location": "Phinney Lutheran Church, 7500 Greenwood Ave. N., Seattle; St. John the Baptist Episcopal, 3050 California Ave. S.W., Seattle; University Congregational Church, 4515 Sixteenth Ave. N.E., Seattle",
     "website_online": "http://www.nwfirelightchorale.org/",
     "website_print": "nwfirelightchorale.org",
     "phone": "206-853-8255",
@@ -1216,9 +1227,9 @@
     "info": "Music, sugar-cookie decorating, visit with Santa, Mrs. Claus, and Frosty the Snowman, face painting, and more",
     "category": "Festivals",
     "price": "free event",
-    "location": "Ten Trails, 32607 WIllow Ave., Black Diamond",
-    "website_online": "http://www.tentrails.com/",
-    "website_print": "tentrails.com",
+    "location": "Along Railroad Ave. in Black Diamond",
+    "website_online": "http://blackdiamondmuseum.org/",
+    "website_print": "http://blackdiamondmuseum.org/",
     "phone": "360-469-4043",
     "dates": "Dec. 14",
     "time": "10 a.m.-3 p.m."

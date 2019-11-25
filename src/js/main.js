@@ -12,7 +12,7 @@ var eventGrid = document.querySelector(".event-grid");
 var events = document.querySelectorAll(".event");
 var resultBox = document.querySelector(".no-results");
 
-var show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'speccial-events'];
+var show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'special-events'];
 var result; 
 
 function filterByCategory(cat){
@@ -20,7 +20,7 @@ function filterByCategory(cat){
     show = [];
   }
   if (show.indexOf(cat) > -1){
-    indexCat = show.indexOf(cat);
+    var indexCat = show.indexOf(cat);
     show.splice(indexCat, 1);
   }
   else {
@@ -37,7 +37,7 @@ function combineFilters(){
   result = 0;
   var searchText = searchBox.value.toLowerCase();
 
-  if(show.length > 0 || searchText.length >= 0){
+  if(show.length > 0){
     if(searchText.length == 0){
       for(var z = 0; z<events.length; z++){
         if(show.indexOf(events[z].dataset.category) > -1){
@@ -91,15 +91,15 @@ function fixNav(){
 }
 
 function allEvents(){
+  searchBox.value = "";
+  show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'special-events'];
   if (this.classList.length == 1){
     this.classList.add("checked");
   }
   else{
     this.classList.remove("checked");
-  }
-  searchBox.value = "";
-  
-  show = ['festivals', 'lights', 'markets', 'parties', 'runs', 'speccial-events'];
+  }  
+
   for(var x = 0; x < catList.length; x++){
     catList[x].classList.remove("checked");
   }
